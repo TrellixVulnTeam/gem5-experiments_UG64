@@ -1,0 +1,20 @@
+   1              		.file	"simple.cc"
+   2              		.text
+   3              		.globl	main
+   5              	main:
+   6              	.LFB0:
+   7              		.cfi_startproc
+   8 0000 55       		pushq	%rbp
+   9              		.cfi_def_cfa_offset 16
+  10              		.cfi_offset 6, -16
+  11 0001 4889E5   		movq	%rsp, %rbp
+  12              		.cfi_def_cfa_register 6
+  13 0004 B8060000 		movl	$6, %eax
+  13      00
+  14 0009 5D       		popq	%rbp
+  15              		.cfi_def_cfa 7, 8
+  16 000a C3       		ret
+  17              		.cfi_endproc
+  18              	.LFE0:
+  20              		.ident	"GCC: (Ubuntu 8.4.0-1ubuntu1~18.04) 8.4.0"
+  21              		.section	.note.GNU-stack,"",@progbits

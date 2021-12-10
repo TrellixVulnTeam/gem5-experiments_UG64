@@ -1,0 +1,6 @@
+Import('*')
+
+SimObject('Test.py')
+Source('test.cc')
+
+DebugFlag('TestFlag')

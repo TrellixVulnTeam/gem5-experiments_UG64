@@ -1,0 +1,9 @@
+Import('*')
+
+SimObject('SimpleMemobj.py')
+Source('simple_memobj.cc')
+SimObject('SimpleCache.py')
+Source('simple_cache.cc')
+
+DebugFlag('SimpleMemobj', "For Learning Gem5 Part 2.")
+DebugFlag('SimpleCache')
