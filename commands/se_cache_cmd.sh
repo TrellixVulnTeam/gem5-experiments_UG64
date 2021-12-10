@@ -11,5 +11,5 @@
 		--cpu-clock=2GHz \
 		--mem-type=DDR4_2400_8x8 \
 		--mem-size=2GB \
-		--cmd=/home/vagrant/software/gem5/benchmarks/STREAM-master/stream_c.exe
+		--cmd=/home/vagrant/gem5-experiments/benchmarks/STREAM-master/stream_c.exe
 
