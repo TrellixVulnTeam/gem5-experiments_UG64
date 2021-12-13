@@ -1,0 +1,5 @@
+utiliser des listes pour stocker les arguments des runs
+
+utiliser des f strings pour la commande du subprocess
+
+

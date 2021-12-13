@@ -1,6 +1,7 @@
 import shutil
 import os
 import subprocess
+import data
 from datetime import date
 
 initialDir = '/home/vagrant/gem5-experiments/help_scripts/m5out'
