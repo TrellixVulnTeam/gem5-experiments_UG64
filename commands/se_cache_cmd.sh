@@ -3,8 +3,8 @@
 ./build/X86/gem5.opt \
 		configs/example/se.py \
 		--caches \
-		--l1i_size=32MB \
-		--l1d_size=32MB \
+		--l1i_size=32kB \
+		--l1d_size=32kB \
 		--l1i_assoc=2 \
 		--l1d_assoc=2 \
 		--sys-clock=2GHz \
