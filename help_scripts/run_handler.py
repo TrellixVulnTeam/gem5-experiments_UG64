@@ -1,6 +1,7 @@
 import shutil
 import os
 import subprocess
+import data
 from datetime import date
 
 initialDir = '/home/vagrant/gem5-experiments/help_scripts/m5out'
@@ -14,8 +15,13 @@ l1Assoc = int(input("l1 Associativity: ") or 2)
 baseName = str(input("Runs default name: ") or 'default')
 numberOfRuns = int(input("Number of runs: ") or 1)
 
-# Make 10 runs, cp the config and stats for each runs in a dedicated folder
-
+# Opens the input file to get the number of runs and the different parameters. 
+def inputGetter():
+    with open("handler_inputs.txt") as file:
+        lines = []
+        lines = file.readlines()
+        lines = [line.rstrip() for line in lines]
+        return lines
 
 for i in range(numberOfRuns):
     # Runs the gem5 cmd and wait for it to finish
