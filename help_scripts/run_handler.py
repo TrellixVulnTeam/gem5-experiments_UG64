@@ -10,7 +10,7 @@ runsDir = '/home/vagrant/gem5-experiments/my_runs'
 i = 0
 
 # subprocess function
-def subProcess(l1is, l1ds, l1ia, l1da)
+def subProcess(l1is, l1ds, l1ia, l1da):
     cmd = cmdBuilder(l1is, l1ds, l1ia, l1da)
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
     print(subprocess.list2cmdline(cmd))
@@ -19,8 +19,8 @@ def subProcess(l1is, l1ds, l1ia, l1da)
     p.wait()
     print(p.returncode)
 
-def cmdBuilder(l1is, l1ds, l1ia, l1da)
-    return cmd =[f'/home/vagrant/gem5-experiments/build/{inputs.isa}/gem5.opt', 
+def cmdBuilder(l1is, l1ds, l1ia, l1da):
+    tempoCmd = [f'/home/vagrant/gem5-experiments/build/{inputs.isa}/gem5.opt', 
                 '/home/vagrant/gem5-experiments/configs/example/se.py',
                 '--caches',
                 f'--l1i_size={l1is}',
@@ -32,6 +32,7 @@ def cmdBuilder(l1is, l1ds, l1ia, l1da)
                 '--mem-type=DDR4_2400_8x8',
                 '--mem-size=2GB',
                 '--cmd=/home/vagrant/gem5-experiments/benchmarks/STREAM-master/stream_c.exe']
+    return tempoCmd
 
 
 for l1is, l1ds, l1ia, l1da in zip(inputs.l1i_size, inputs.l1d_size, inputs.l1i_assoc, inputs.l1d_assoc):
