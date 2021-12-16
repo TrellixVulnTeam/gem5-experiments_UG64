@@ -1,5 +1,5 @@
-baseName = 'test_input'
-
+baseName = 'testing'
+outputFileName = 'outputTest'
 caches = True
 l1i_size = ['1kB', '2kB']
 l1d_size = ['1kB', '2kB']
