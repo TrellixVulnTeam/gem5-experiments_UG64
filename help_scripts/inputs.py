@@ -1,4 +1,4 @@
-baseName = 'test_input'
+baseName = 'testing'
 
 caches = True
 l1i_size = ['1kB', '2kB']
