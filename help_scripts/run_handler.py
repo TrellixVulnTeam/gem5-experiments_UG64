@@ -1,4 +1,5 @@
 import shutil
+import re
 import os
 import subprocess
 import data
@@ -7,6 +8,7 @@ import inputs
 
 initialDir = '/home/vagrant/gem5-experiments/help_scripts/m5out'
 runsDir = '/home/vagrant/gem5-experiments/my_runs'
+outputFilePath = '/home/vagrant/gem5-experiments/my_runs'
 i = 0
 
 
@@ -35,6 +37,22 @@ def cmdBuilder(l1is, l1ds, l1ia, l1da):
                         STREAM-master/stream_c.exe']
     return tempoCmd
 
+def writingAtTheEnd(outputFilePath, outputFileName, outputsToWrite):
+    pathToOutputFile = os.path.join(outputFilePath, outputFileName)
+    outputFile = open(pathToOutputFile, 'a')
+    outputFile.write(outputsToWrite)
+    outputFile.close()
+
+def grepOutputLines(expression, runNumber, outputFileName):
+    outputs = f"#########################################\nRun \
+            {runNumber}:\n#########################################\n"
+    with open(outputFileName, "r") as file: 
+        for line in file:
+            if re.search(expression, line): 
+                 outputs += line
+    return outputs
+
+
 
 for l1is, l1ds, l1ia, l1da in zip(inputs.l1i_size, inputs.l1d_size, inputs.l1i_assoc, inputs.l1d_assoc):
 
@@ -45,6 +63,11 @@ for l1is, l1ds, l1ia, l1da in zip(inputs.l1i_size, inputs.l1d_size, inputs.l1i_a
     # Created the new directory
     if not os.path.exists(newRunDir):
         os.makedirs(newRunDir)
+
+    # Grep results depending on input keyword and copy run results
+    # in an output txt file
+    currentRunOutputs = grepOutputLines('miss', i, os.path.join(initialDir, 'stats.txt'))
+    writingAtTheEnd(outputFilePath, inputs.outputFileName, currentRunOutputs)
 
     # Copy gem5 ouputs in the new directory
     out_files = os.listdir(initialDir)
