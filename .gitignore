@@ -7,7 +7,6 @@ cscope.files
 cscope.out
 my_runs
 *.pyc
-*.vim
 *~
 .*.swp
 .*.swo
