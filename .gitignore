@@ -6,6 +6,7 @@ parsetab.py
 cscope.files
 cscope.out
 my_runs
+m5out
 *.pyc
 *~
 .*.swp
