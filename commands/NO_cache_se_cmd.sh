@@ -4,6 +4,7 @@
 		configs/example/se.py \
 		--sys-clock=2GHz \
 		--cpu-clock=2GHz \
+		--cpu-type=DerivO3CPU \
 		--mem-type=DDR4_2400_8x8 \
 		--mem-size=2GB \
 		--cmd=/home/vagrant/software/gem5/benchmarks/STREAM-master/stream_c.exe
