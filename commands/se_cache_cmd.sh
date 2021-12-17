@@ -9,7 +9,7 @@
 		--l1i_assoc=2 \
 		--l1d_assoc=2 \
 		--l2_size=256kB \
-		--l3_size=10MB \
+		--ruby \
 		--cpu-type=AtomicSimpleCPU \
 		--sys-clock=2GHz \
 		--cpu-clock=2GHz \
